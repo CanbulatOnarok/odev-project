@@ -1,0 +1,26 @@
+main {
+    text-align: center;
+    input {
+        text-align: left;
+        margin: 5px;
+        padding: 3px 60px 3px 4px;
+        border: 2px solid black;
+        font-size: x-large;
+    }
+    input[type=submit]{
+        border-radius: 10px;
+        padding: 5px 20px;
+        background: rgba(255, 255, 0, 0.616);
+        border: 2px solid black;
+        &:disabled {
+            visibility: hidden;
+        }
+    }
+    
+    .product-card li {
+        border-radius: 0px;
+        margin-left: 45%;
+
+    }
+
+}

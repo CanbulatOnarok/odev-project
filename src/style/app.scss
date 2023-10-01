@@ -1,0 +1,17 @@
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    list-style: none;
+}
+body{
+    background:salmon;
+    height: 1500px;
+    color: black;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+}

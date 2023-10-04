@@ -4,7 +4,7 @@ import "../style/categories.scss";
 
 
 
-const Categories = ({ data,setCurrentCategory }) => {
+const Categories = ({categoryList }) => {
 
 
 
@@ -15,10 +15,9 @@ const Categories = ({ data,setCurrentCategory }) => {
       <h1>Categories</h1>
       </div>
       <ul>
-        {data.map(category => (
-          <li key={category.id} 
-          onClick={()=> setCurrentCategory(category.categoryName)} >
-            {category.categoryName}</li>
+        {categoryList.map(categories => (
+          <li key={categories.id}  >
+            {categories.categoryName}</li>
         ))}
       </ul>
     </div>

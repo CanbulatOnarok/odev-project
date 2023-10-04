@@ -1,34 +1,56 @@
 import Navi from "./component/Navi"
 import Categories from "./component/Categories"
 import Product from "./component/Product"
-import Input from "./component/Input"
+import Form from "./component/Form"
 
 import '../src/style/app.scss';
-import data from "./data/data";
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
 
 
 function App() {
-  /* Prop area */
-  const [product, setProduct] = useState(data.products);
-  const [categories, setCategories] = useState(data.categories);
 
-  const newProduct = (newProdcts) => {
-    setProduct(prev => [...prev, newProdcts])
+  const [products, setProducts] = useState([]);
+  const [categoryList, setCategoryList] = useState([]);
+ 
+
+  const addNewProduct = (newProduct) => {
+    setProducts(prevProducts => [...prevProducts, newProduct]);
   }
-  const [currentCategory, setCurrentCategory] = useState("");
 
 
+  const getProduct = async () => {
+    let url = " http://localhost:3005/products";
+    const response = await fetch(url);
+    const products = await response.json();
+    setProducts(products);
+  }
+  useEffect(() => {
+    getProduct()
+  }, [])
+
+  const getCategories = async () => {
+    let url = " http://localhost:3005/categories";
+    const response = await fetch(url);
+    const categories = await response.json();
+    setCategoryList(categories);
+  }
+  useEffect(() => {
+    getCategories()
+  }, [])
 
   return (
     <>
-      <Navi data={categories} />
-      <Input newProduct={newProduct} />
-      <div className="container">
-        <Categories setCurrentCategory={setCurrentCategory} data={categories} />
-        <Product data={product} currentCategory={currentCategory} />
-      </div>
+      <Navi categoryList={categoryList} />
 
+      <div className="container">
+        <div className="sidebar" >
+
+          <Categories categoryList={categoryList} />
+          <Form addNewProduct={addNewProduct} product={products} />
+        </div>
+        <Product product={products} />
+      </div>
     </>
   );
 }

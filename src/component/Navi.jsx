@@ -1,8 +1,9 @@
-import React from 'react'
+
 import "../style/Navi.scss";
 import Logo from "../image/ürünler.png"
 
-const Navi = ({data}) => {
+const Navi = ({categoryList}) => {
+
   return (
     <nav>
       <div className="logo">
@@ -10,8 +11,8 @@ const Navi = ({data}) => {
       <h1>Onarok Company</h1>
       </div>
       <ul>
-        {data.map(category => (
-          <li key={category.id}>{category.categoryName}</li>
+        {categoryList.map(categoryList => (
+          <li  key={categoryList.id}>{categoryList.categoryName}</li>
         ))}
       </ul>
     </nav>

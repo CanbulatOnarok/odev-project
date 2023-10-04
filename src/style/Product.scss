@@ -1,25 +1,38 @@
 .product {
-  padding: 20px;
-  border: none;
-  border-radius: 5px;
-  border: 2px solid black;
-  width: 100%;
-
-}
-
-th {
-  background: whitesmoke;;
-  color: black;
-  font-size: x-large;
-  text-align: left;
+  width: 75vw;
+  display: table-cell;
+  margin: 0px 15px 0 15px;
+  color: rgb(41, 41, 41);
   padding: 5px;
+  font-family: monospace;
+  font-size: 20px;
 }
 
+table {
+  margin: 20px;
+  width: 68vw;
+  opacity: 0.9;
+}
+thead {
+  background-color: whitesmoke;
+  opacity: 0.9;
+  font-weight: bold;
+}
+th,
 td {
-  border: 1px solid black;
-  padding: 10px 100px;
-  color: whitesmoke;
-  background: rgba(240, 240, 3, 0.576);
+  border: 2px solid #ccc;
+  padding: 8px;
+  border-radius: 3px;
+  text-align: left;
+}
+tbody tr:nth-child(even) {
+  background-color: rgba(162, 162, 7, 0.616);
+  opacity: 0.9;
+}
+
+tbody tr:nth-child(odd) {
+  opacity: 0.9;
+  background-color: rgba(250, 250, 2, 0.616);
 }
 
 button {

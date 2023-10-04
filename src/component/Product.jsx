@@ -1,9 +1,8 @@
 import React from 'react'
 import "../style/Product.scss";
-const Product = ({ data,currentCategory}) => {
+const Product = ({ product}) => {
   return (
     <div className="product">
-      <h3>Product List- {currentCategory}</h3>
       <table>
         <thead>
           <tr>
@@ -15,7 +14,7 @@ const Product = ({ data,currentCategory}) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((product) => (
+          {product.map((product) => (
             <tr key={product.id}>
               <td>{product.id}</td>
               <td>{product.productName}</td>

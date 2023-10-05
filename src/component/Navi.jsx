@@ -7,7 +7,7 @@ const Navi = ({categoryList}) => {
   return (
     <nav>
       <div className="logo">
-      <img src={Logo} alt="logo" />
+      <img src={Logo} alt="" />
       <h1>Onarok Company</h1>
       </div>
       <ul>

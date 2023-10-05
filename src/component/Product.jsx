@@ -1,7 +1,9 @@
 import React from 'react'
 import "../style/Product.scss";
 const Product = ({ product}) => {
+
   return (
+    
     <div className="product">
       <table>
         <thead>

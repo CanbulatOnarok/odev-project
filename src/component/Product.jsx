@@ -2,6 +2,7 @@ import React from 'react'
 import "../style/Product.scss";
 const Product = ({ product}) => {
 
+  
   return (
     
     <div className="product">
@@ -25,7 +26,7 @@ const Product = ({ product}) => {
               <td>{product.unitsInStock}</td>
               
             </tr>
-          ))}
+          )).reverse()}
         </tbody>
       </table>
     </div>

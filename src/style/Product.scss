@@ -6,6 +6,8 @@
   padding: 5px;
   font-family: monospace;
   font-size: 20px;
+  height: 800px;
+  overflow: scroll;
 }
 
 table {
@@ -17,6 +19,11 @@ thead {
   background-color: whitesmoke;
   opacity: 0.9;
   font-weight: bold;
+  position: sticky;
+}
+thead th{
+  position: sticky;
+  top: 0px;
 }
 th,
 td {

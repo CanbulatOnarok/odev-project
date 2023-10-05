@@ -27,6 +27,7 @@ function App() {
   }
   useEffect(() => {
     getProduct()
+    getCategories()
   }, [])
 
   const getCategories = async () => {
@@ -35,9 +36,7 @@ function App() {
     const categories = await response.json();
     setCategoryList(categories);
   }
-  useEffect(() => {
-    getCategories()
-  }, [])
+
 
   return (
     <>
@@ -47,7 +46,7 @@ function App() {
         <div className="sidebar" >
 
           <Categories categoryList={categoryList} />
-          <Form addNewProduct={addNewProduct} product={products} />
+          <Form addNewProduct={addNewProduct} product={products} categoryList={categoryList} />
         </div>
         <Product product={products} />
       </div>

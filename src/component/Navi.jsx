@@ -2,7 +2,7 @@
 import "../style/Navi.scss";
 import Logo from "../image/ürünler.png"
 
-const Navi = ({categoryList}) => {
+const Navi = ({categoryList,handleCategoryClick}) => {
 
   return (
     <nav>
@@ -12,7 +12,7 @@ const Navi = ({categoryList}) => {
       </div>
       <ul>
         {categoryList.map(categoryList => (
-          <li  key={categoryList.id}>{categoryList.categoryName}</li>
+          <li  key={categoryList.id}  >{categoryList.categoryName}</li>
         ))}
       </ul>
     </nav>

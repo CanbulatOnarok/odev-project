@@ -5,4 +5,4 @@
 >Seçilen ketegoriye göre ilgili ürünleri göstermek.
 ### Json-server
 > json-server 3005 portunda kurulu.fake api'yi çalıştırmak için terminalde "npm run api" ile json-server çalıştırılmalıdır.
-!(https://r.resimlink.com/pjnUuW7s1.jpg)
+[![image](https://r.resimlink.com/pjnUuW7s1.jpg)](https://resimlink.com/pjnUuW7s1)

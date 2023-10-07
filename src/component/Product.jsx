@@ -1,6 +1,8 @@
 import React from 'react'
 import "../style/Product.scss";
-const Product = ({ product}) => {
+import {BsGear} from 'react-icons/bs';
+
+const Product = ({ products,deleteProduct}) => {
 
   
   return (
@@ -17,13 +19,16 @@ const Product = ({ product}) => {
           </tr>
         </thead>
         <tbody>
-          {product.map((product) => (
+          {products.map((product) => (
+            !product.isDeleted && 
             <tr key={product.id}>
               <td>{product.id}</td>
               <td>{product.productName}</td>
               <td>{product.quantityPerUnit}</td>
               <td>{product.unitPrice}</td>
               <td>{product.unitsInStock}</td>
+              <button className='delete' onClick={()=>deleteProduct(product.id)}><BsGear/></button>
+              
               
             </tr>
           )).reverse()}

@@ -2,33 +2,40 @@ import Navi from "./component/Navi"
 import Categories from "./component/Categories"
 import Product from "./component/Product"
 import Form from "./component/Form"
-
+import axios from "axios";
 import '../src/style/app.scss';
-
 import { useEffect, useState } from "react";
+
 
 
 function App() {
 
   const [products, setProducts] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
- 
 
-  const addNewProduct = (newProduct) => {
+
+  const addNewProduct = async (newProduct) => {
+    // setProducts(prevProducts => [...prevProducts, newProduct]);
+    let url = `http://localhost:3005/products`
+    const response = await axios.post(url, newProduct);
+    console.log(response);
     setProducts(prevProducts => [...prevProducts, newProduct]);
   }
-
+  const deleteProduct = async (id) => {
+    let url = `http://localhost:3005/products/${id}`
+    const response = await axios.patch(url,{ isDeleted:true })
+    console.log(response);
+    if (response.status === 200)
+      setProducts(prev => prev.filter(statedenGelen => statedenGelen.id !== id));
+  }
 
   const getProduct = async () => {
-    let url = " http://localhost:3005/products";
+    let url = "http://localhost:3005/products";
     const response = await fetch(url);
     const products = await response.json();
     setProducts(products);
   }
-  useEffect(() => {
-    getProduct()
-    getCategories()
-  }, [])
+
 
   const getCategories = async () => {
     let url = " http://localhost:3005/categories";
@@ -36,7 +43,10 @@ function App() {
     const categories = await response.json();
     setCategoryList(categories);
   }
-
+  useEffect(() => {
+    getProduct()
+    getCategories()
+  }, [])
 
   return (
     <>
@@ -48,7 +58,7 @@ function App() {
           <Categories categoryList={categoryList} />
           <Form addNewProduct={addNewProduct} product={products} categoryList={categoryList} />
         </div>
-        <Product product={products} />
+        <Product products={products} deleteProduct={deleteProduct} />
       </div>
     </>
   );

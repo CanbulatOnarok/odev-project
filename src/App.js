@@ -1,5 +1,4 @@
 import Navi from "./component/Navi"
-import Categories from "./component/Categories"
 import Product from "./component/Product"
 import Form from "./component/Form"
 import axios from "axios";
@@ -12,25 +11,37 @@ function App() {
 
   const [products, setProducts] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
 
-  const addNewProduct = async (newProduct) => {
-    // setProducts(prevProducts => [...prevProducts, newProduct]);
+
+  const addNewAndEditProduct = async (newProduct) => {
     let url = `http://localhost:3005/products`
-    const response = await axios.post(url, newProduct);
-    console.log(response);
-    setProducts(prevProducts => [...prevProducts, newProduct]);
-  }
+    if (!selectedProduct) {
+      const response = await axios.post(url, newProduct);
+      if (response.status === 201) {
+        setProducts(prevProducts => [...prevProducts, newProduct]);
+      }
+    }else {
+      url += `/${selectedProduct.id}`;
+      const response2 = await axios.put(url, newProduct);
+      console.log(response2);
+      setSelectedProduct(null);
+    }
+  };
   const deleteProduct = async (id) => {
     let url = `http://localhost:3005/products/${id}`
-    const response = await axios.patch(url,{ isDeleted:true })
-    console.log(response);
+    const response = await axios.patch(url, { isDeleted: true })
     if (response.status === 200)
       setProducts(prev => prev.filter(statedenGelen => statedenGelen.id !== id));
   }
 
   const getProduct = async () => {
     let url = "http://localhost:3005/products";
+    if (selectedCategory && selectedCategory !== "All Products") {
+      url += "?categoryName=" + selectedCategory;
+    }
     const response = await fetch(url);
     const products = await response.json();
     setProducts(products);
@@ -38,27 +49,34 @@ function App() {
 
 
   const getCategories = async () => {
-    let url = " http://localhost:3005/categories";
-    const response = await fetch(url);
-    const categories = await response.json();
-    setCategoryList(categories);
+    let url = "http://localhost:3005/categories";
+    const response = await axios.get(url);
+    const categoryList = response.data;
+    setCategoryList(categoryList);
   }
+  const editProduct = async (id) => {
+    let url = `http://localhost:3005/products/${id}`
+    const response = await axios.get(url);
+    const arrengedProduct = response.data;
+    setSelectedProduct(arrengedProduct);
+
+  }
+
   useEffect(() => {
     getProduct()
     getCategories()
-  }, [])
+    //eslint-disable-next-line
+  }, [selectedProduct, selectedCategory])
 
   return (
     <>
-      <Navi categoryList={categoryList} />
+      <Navi categoryList={categoryList} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
 
       <div className="container">
         <div className="sidebar" >
-
-          <Categories categoryList={categoryList} />
-          <Form addNewProduct={addNewProduct} product={products} categoryList={categoryList} />
+          <Form addNewAndEditProduct={addNewAndEditProduct} product={products} categoryList={categoryList}selectedProduct={selectedProduct} />
         </div>
-        <Product products={products} deleteProduct={deleteProduct} />
+        <Product products={products} deleteProduct={deleteProduct} editProduct={editProduct} />
       </div>
     </>
   );

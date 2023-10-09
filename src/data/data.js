@@ -6,8 +6,7 @@ const data={
         "productName": "Chai",
         "quantityPerUnit": "48 - 6 oz jars",
         "unitPrice": "24",
-        "unitsInStock": 53,
-        "isDeleted": true
+        "unitsInStock": 53
       },
       {
         "id": 2,
@@ -15,8 +14,7 @@ const data={
         "productName": "Chang",
         "quantityPerUnit": "24 - 12 oz bottles",
         "unitPrice": "21",
-        "unitsInStock": 17,
-        "isDeleted": true
+        "unitsInStock": 17
       },
       {
         "id": 3,
@@ -24,8 +22,8 @@ const data={
         "productName": "Chang",
         "quantityPerUnit": "24 - 12 oz bottles",
         "unitPrice": "21",
-        "unitsInStock": 17,
-        "isDeleted": true
+        "unitsInStock": 17
+      
       },
       {
         "id": 4,
@@ -33,8 +31,7 @@ const data={
         "productName": "Chef Anton's Cajun Seasoning",
         "quantityPerUnit": "48 - 6 oz jars",
         "unitPrice": "222",
-        "unitsInStock": 53,
-        "isDeleted": true
+        "unitsInStock": 53
       },
       {
         "id": 5,
@@ -42,8 +39,7 @@ const data={
         "productName": "Chef Anton's Gumbo Mix",
         "quantityPerUnit": "36 boxes",
         "unitPrice": "21",
-        "unitsInStock": 0,
-        "isDeleted": true
+        "unitsInStock": 0
       },
       {
         "id": 6,
@@ -51,8 +47,7 @@ const data={
         "productName": "Grandma's Boysenberry Spread",
         "quantityPerUnit": "12 - 8 oz jars",
         "unitPrice": 25,
-        "unitsInStock": 120,
-        "isDeleted": true
+        "unitsInStock": 120
       },
       {
         "id": 7,
@@ -165,8 +160,7 @@ const data={
         "productName": "Sir Rodney's Marmalade",
         "quantityPerUnit": "30 gift boxes",
         "unitPrice": 81,
-        "unitsInStock": 40,
-        "isDeleted": true
+        "unitsInStock": 40
       },
       {
         "id": 21,
@@ -190,8 +184,7 @@ const data={
         "productName": "Tunnbröd",
         "quantityPerUnit": "12 - 250 g pkgs.",
         "unitPrice": 9,
-        "unitsInStock": 61,
-        "isDeleted": true
+        "unitsInStock": 61
       },
       {
         "id": 24,

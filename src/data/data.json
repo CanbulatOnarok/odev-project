@@ -6,8 +6,7 @@
       "productName": "Chai",
       "quantityPerUnit": "48 - 6 oz jars",
       "unitPrice": "24",
-      "unitsInStock": 53,
-      "isDeleted": true
+      "unitsInStock": 53
     },
     {
       "id": 2,
@@ -15,8 +14,7 @@
       "productName": "Chang",
       "quantityPerUnit": "24 - 12 oz bottles",
       "unitPrice": "21",
-      "unitsInStock": 17,
-      "isDeleted": true
+      "unitsInStock": 17
     },
     {
       "id": 3,
@@ -24,8 +22,7 @@
       "productName": "Chang",
       "quantityPerUnit": "24 - 12 oz bottles",
       "unitPrice": "21",
-      "unitsInStock": 17,
-      "isDeleted": true
+      "unitsInStock": 17
     },
     {
       "id": 4,
@@ -33,8 +30,7 @@
       "productName": "Chef Anton's Cajun Seasoning",
       "quantityPerUnit": "48 - 6 oz jars",
       "unitPrice": "222",
-      "unitsInStock": 53,
-      "isDeleted": true
+      "unitsInStock": 53
     },
     {
       "id": 5,
@@ -42,8 +38,7 @@
       "productName": "Chef Anton's Gumbo Mix",
       "quantityPerUnit": "36 boxes",
       "unitPrice": "21",
-      "unitsInStock": 0,
-      "isDeleted": true
+      "unitsInStock": 0
     },
     {
       "id": 6,
@@ -51,8 +46,7 @@
       "productName": "Grandma's Boysenberry Spread",
       "quantityPerUnit": "12 - 8 oz jars",
       "unitPrice": 25,
-      "unitsInStock": 120,
-      "isDeleted": true
+      "unitsInStock": 120
     },
     {
       "id": 7,
@@ -156,8 +150,7 @@
       "productName": "Teatime Chocolate Biscuits",
       "quantityPerUnit": "10 boxes x 12 pieces",
       "unitPrice": 9.2,
-      "unitsInStock": 25,
-      "isDeleted": true
+      "unitsInStock": 25
     },
     {
       "id": 20,
@@ -165,8 +158,7 @@
       "productName": "Sir Rodney's Marmalade",
       "quantityPerUnit": "30 gift boxes",
       "unitPrice": 81,
-      "unitsInStock": 40,
-      "isDeleted": true
+      "unitsInStock": 40
     },
     {
       "id": 21,
@@ -190,8 +182,7 @@
       "productName": "Tunnbröd",
       "quantityPerUnit": "12 - 250 g pkgs.",
       "unitPrice": 9,
-      "unitsInStock": 61,
-      "isDeleted": true
+      "unitsInStock": 61
     },
     {
       "id": 24,
@@ -607,8 +598,7 @@
       "productName": "Rhönbräu Klosterbier",
       "quantityPerUnit": "24 - 0.5 l bottles",
       "unitPrice": 7.75,
-      "unitsInStock": 125,
-      "isDeleted": true
+      "unitsInStock": 125
     },
     {
       "id": 76,
@@ -625,9 +615,22 @@
       "quantityPerUnit": "12 boxes",
       "unitPrice": 13,
       "unitsInStock": 32
+    },
+    {
+      "id": 78,
+      "productCategoryId": "1",
+      "productName": "sadsad",
+      "quantityPerUnit": "asdasd",
+      "unitPrice": "12313",
+      "unitsInStock": "132123"
     }
   ],
   "categories": [
+    {
+      "id": 0,
+      "categoryName": "All Products",
+      "seoUrl": "all-products"
+    },
     {
       "id": 1,
       "categoryName": "Beverages",

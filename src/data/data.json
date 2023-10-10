@@ -615,14 +615,6 @@
       "quantityPerUnit": "12 boxes",
       "unitPrice": 13,
       "unitsInStock": 32
-    },
-    {
-      "id": 78,
-      "productCategoryId": "1",
-      "productName": "sadsad",
-      "quantityPerUnit": "asdasd",
-      "unitPrice": "12313",
-      "unitsInStock": "132123"
     }
   ],
   "categories": [

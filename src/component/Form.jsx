@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "../style/form.scss"
 import { useState } from 'react'
 
@@ -6,9 +6,9 @@ import { useState } from 'react'
 const Form = ({ product, addNewAndEditProduct, categoryList,selectedProduct }) => {
 
     const [productName, setProductName] = useState("");
-    const [productQuantity, setProductQuantity] = useState("");
-    const [productPrice, setProductPrice] = useState("");
-    const [productStock, setProductStock] = useState("");
+    const [quantityPerUnit, setQuantityPerUnit] = useState("");
+    const [unitPrice, setUnitPrice] = useState("");
+    const [unitsInStock, setUnitsInStock] = useState("");
     const [productCategoryId, setProductCategoryId] = useState("");
 
 
@@ -18,24 +18,32 @@ const Form = ({ product, addNewAndEditProduct, categoryList,selectedProduct }) =
             id: product.length + 1,
             productCategoryId: productCategoryId,
             productName: productName,
-            quantityPerUnit: productQuantity,
-            unitPrice: productPrice,
-            unitsInStock: productStock
+            quantityPerUnit: quantityPerUnit,
+            unitPrice: unitPrice,
+            unitsInStock: unitsInStock
         });
 
 
         setProductName("");
-        setProductQuantity("");
-        setProductPrice("");
-        setProductStock("");
+        setQuantityPerUnit("");
+        setUnitPrice("");
+        setUnitsInStock("");
         setProductCategoryId("Select Category");
     }
+    useEffect(()=>{
+        if(selectedProduct){
+            setProductName(selectedProduct.productName)
+            setQuantityPerUnit(selectedProduct.quantityPerUnit)
+            setUnitPrice(selectedProduct.unitPrice)
+            setUnitsInStock(selectedProduct.unitsInStock)
+        }
+       },[selectedProduct])
     return (
         <main>
             <form onSubmit={handleSubmit} className='product-form'>
                 <h3>Add Product</h3>
                 <select value={productCategoryId} onChange={e => setProductCategoryId(e.target.value)} required>
-                    <option value={""} >Select Categor</option>
+                    <option value={""} >Select Category</option>
                     {categoryList.map(category => (
                         <option value={category.id} key={category.id} >{category.categoryName}</option>
                     ))}
@@ -44,20 +52,20 @@ const Form = ({ product, addNewAndEditProduct, categoryList,selectedProduct }) =
                     <input value={productName} type="text" placeholder='Product Name:' onChange={e => setProductName(e.target.value)} required />
                 </div>
                 <div className="input-area">
-                    <input value={productQuantity} type="text" placeholder='Quantity Per Unit:' onChange={e => setProductQuantity(e.target.value)} required />
+                    <input value={quantityPerUnit} type="text" placeholder='Quantity Per Unit:' onChange={e => setQuantityPerUnit(e.target.value)} required />
                 </div>
                 <div className="input-area">
-                    <input value={productPrice} type="number" placeholder='Unit Price:' onChange={e => setProductPrice(e.target.value)} required />
+                    <input value={unitPrice} type="number" placeholder='Unit Price:' onChange={e => setUnitPrice(e.target.value)} required />
                 </div>
                 <div className="input-area">
-                    <input value={productStock} type="number" placeholder='Units In Stock:' onChange={e => setProductStock(e.target.value)} required />
+                    <input value={unitsInStock} type="number" placeholder='Units In Stock:' onChange={e => setUnitsInStock(e.target.value)} required />
                 </div>
                 <input disabled={
                     productCategoryId === "Select Category" ||
-                    !productName.trim() ||
-                    !productQuantity.trim() ||
-                    !productPrice.trim() ||
-                    !productStock
+                    !productName||
+                    !quantityPerUnit ||
+                    !unitPrice ||
+                    !unitsInStock
                 } type="submit" value={selectedProduct ? "Edit" : "Save"} />
             </form>
 

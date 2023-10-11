@@ -11,7 +11,7 @@ function App() {
 
   const [products, setProducts] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategoryID, setSelectedCategoryID] = useState("");
   const [selectedProduct, setSelectedProduct] = useState(null);
 
 
@@ -30,6 +30,7 @@ function App() {
       setSelectedProduct(null);
     }
   };
+  //silme
   const deleteProduct = async (id) => {
     let url = `http://localhost:3005/products/${id}`
     const response = await axios.patch(url, { isDeleted: true })
@@ -39,8 +40,8 @@ function App() {
 
   const getProduct = async () => {
     let url = "http://localhost:3005/products";
-    if (selectedCategory && selectedCategory !== "All Products") {
-      url += "?categoryName=" + selectedCategory;
+    if (selectedCategoryID && selectedCategoryID !== "All Products") {
+      url += `?categoryId=${selectedCategoryID}`;
     }
     const response = await fetch(url);
     const products = await response.json();
@@ -54,6 +55,8 @@ function App() {
     const categoryList = response.data;
     setCategoryList(categoryList);
   }
+
+  // ürün düzenleme
   const editProduct = async (id) => {
     let url = `http://localhost:3005/products/${id}`
     const response = await axios.get(url);
@@ -63,14 +66,14 @@ function App() {
   }
 
   useEffect(() => {
-    getProduct()
-    getCategories()
-    //eslint-disable-next-line
-  }, [selectedProduct, selectedCategory])
+    getProduct();
+    getCategories();
+     //eslint-disable-next-line
+  }, [selectedCategoryID, selectedProduct]);
 
   return (
     <>
-      <Navi categoryList={categoryList} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+      <Navi categoryList={categoryList} selectedCategory={selectedCategoryID} setSelectedCategory={setSelectedCategoryID} />
 
       <div className="container">
         <div className="sidebar" >

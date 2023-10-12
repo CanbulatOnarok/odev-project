@@ -1,6 +1,8 @@
 import React from 'react'
 import "../style/Product.scss";
 import { BsTrash3, BsGear } from 'react-icons/bs';
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Product = ({ products, deleteProduct, editProduct }) => {
 
@@ -8,6 +10,7 @@ const Product = ({ products, deleteProduct, editProduct }) => {
   return (
 
     <div className="product">
+      <ToastContainer/>
       <table>
         <thead>
           <tr>

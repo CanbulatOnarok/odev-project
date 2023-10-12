@@ -615,15 +615,6 @@
       "quantityPerUnit": "12 boxes",
       "unitPrice": 13,
       "unitsInStock": 32
-    },
-    {
-      "id": 78,
-      "productCategoryId": "5",
-      "productName": "aaaa",
-      "quantityPerUnit": "aaa",
-      "unitPrice": "1111",
-      "unitsInStock": "1111",
-      "isDeleted": true
     }
   ],
   "categories": [
